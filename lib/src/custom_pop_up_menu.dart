@@ -111,6 +111,18 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
                 position: widget.position,
               ),
               children: <Widget>[
+                LayoutId(
+                  id: _MenuLayoutId.content,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Material(
+                        child: widget.menuBuilder(),
+                        color: Colors.transparent,
+                      ),
+                    ],
+                  ),
+                ),
                 if (widget.showArrow)
                   LayoutId(
                     id: _MenuLayoutId.arrow,
@@ -124,18 +136,6 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
                       child: arrow,
                     ),
                   ),
-                LayoutId(
-                  id: _MenuLayoutId.content,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Material(
-                        child: widget.menuBuilder(),
-                        color: Colors.transparent,
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),
